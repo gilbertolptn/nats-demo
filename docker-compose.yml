@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  nats:
+    image: nats:2.10
+    ports:
+      - "4222:4222"
+    healthcheck:
+      test: ["CMD", "nc", "-z", "localhost", "4222"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
